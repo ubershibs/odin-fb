@@ -2,12 +2,13 @@
 Building a Facebook clone as a final project in the Odin Project's Rails course. The requirements are laid out [on their site](http://www.theodinproject.com/ruby-on-rails/final-project)
 
 ###What's done:
-* Created the rails app with a postgresql database from the get-go (first time)
+* Create the rails app with a postgresql database from the get-go (first time)
+* Sign-in with Devise
+* Set up Foundation for styling/layout - like it so far.
+* Add tests to User model / expand model to include user info (non-auth related)
 
 ### To do
-* Sign-in using Devise
-  * All pages require sign-in except sign-in
-  * Use Omniauth to allow users to isng in with their real FB account
+* Use Omniauth to allow users to isng in with their real FB account
 * Welcome mailer
   * Letter_opener in development
   * Sendgrid in prod
