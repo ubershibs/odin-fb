@@ -1,0 +1,9 @@
+<%= @user.name %>!</h2>
+
+<% if current_user == @user %>
+  <%= render '/posts/post_form' %>
+<% end %>
+
+<h2> Posts</h2>
+ 
+<%= render '/posts/view_post' %>

@@ -1,0 +1,14 @@
+  <article>
+    <h4><%= post.user.name %></h4>
+    <p><%= distance_of_time_in_words_to_now(post.created_at) %></p>
+    <p><%= post.content %></p>
+
+    <section class="comments">
+      <h5>Comments</h4>
+      <% if post.comments.any? %>  
+        <%= render post.comments.order(created_at: :asc) %>
+      <% end %>
+      <%= render template: "comments/new", locals: {post: post} %>
+
+    </section>
+  </article>

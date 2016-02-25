@@ -1,0 +1,5 @@
+<%= form_for(post.comments.build, url: post_comments_path(post.id), method: "post") do |f| %>
+  <%= hidden_field_tag :post_id, post.id %>
+  <%= f.text_area :content, placeholder: "Have a comment?" %>
+  <%= f.submit "Comment" %>
+<% end %>

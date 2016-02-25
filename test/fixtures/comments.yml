@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: "MyComment 1"
+  user: michael
+  post: tau_manifesto
+  created_at: <%= 5.minutes.ago %>
+
+two:
+  content: "MyText"
+  user: luke
+  post: tau_manifesto
+  created_at: <%= 4.minutes.ago %>

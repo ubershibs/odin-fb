@@ -17,18 +17,20 @@
    
     <nav class="title-bar">
       <ul class="menu">
-         <li class="topbar-title"><%= link_to "OdinFB", root_path %></li>
+         <li><%= link_to "OdinFB", url:'home#index' %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          <% end %>
+        <% end %>
       </ul>
     </nav>
+    <div class="row">
+      <div class="small-10 small-offset-1">
+        <% flash.each do |message_type, message| %>
+          <div class="<%= message_type %> callout"><%= message %></div>
+        <% end %>
 
-    <% flash.each do |message_type, message| %>
-      <div class="<%= message_type %> callout"><%= message %></div>
-    <% end %>
-
-    <%= yield %>
-
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

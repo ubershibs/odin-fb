@@ -35,3 +35,4 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
     * Not already a friend
     * Not having a pending friend request
 * Deploy to Heroku
+* Test that user is logged in and can see all pages after signup

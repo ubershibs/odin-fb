@@ -3,11 +3,11 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
-    @user = User.new(email: "default@example.com", password: "password123",
-                     password_confirmation: "password123")
+    @user = User.new(name: "the man", email: "the_man@the_man.com", password: "foobar123",
+                     password_confirmation: "foobar123")
   end
 
-  test "user should be valid" do
+  test "should be valid" do
     assert @user.valid?
   end
 
@@ -30,6 +30,20 @@ class UserTest < ActiveSupport::TestCase
   test "password and confirmation should be present" do
     @user.password = "   "
     @user.password_confirmation = "  "
+    assert_not @user.valid?
+  end
+
+  test "name should be present or nil" do
+    @user.name = "Luke Walker"
+    assert @user.valid?
+    @user.name = nil
+    assert @user.valid?
+    @user.name = "  "
+    assert_not @user.valid?
+  end
+
+  test "name should not be more than 50 char" do 
+    @user.name = "a" * 51
     assert_not @user.valid?
   end
 end
