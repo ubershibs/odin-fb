@@ -15,6 +15,10 @@ gem 'turbolinks'
 gem 'jbuilder',       '~> 2.0'
 gem 'puma'
 gem 'devise'
+gem 'amistad'
+gem 'figaro'
+gem 'foundation-icons-sass-rails'
+gem 'faker'
 
 group :doc do 
 gem 'sdoc',           '~> 0.4.0'
@@ -29,7 +33,7 @@ group :development do
   gem 'spring'
   gem 'guard'
   gem 'minitest-reporters' 
-  gem 'guard-minitest' 
+  gem 'guard-minitest'
 end
 
 group :test do

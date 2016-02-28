@@ -1,0 +1,6 @@
+<%= form_for(object.likes.build) do |f| %>
+  <div><%= hidden_field_tag :user_id, current_user.id %></div>
+  <%= f.submit :class => "button" do %>
+    <i class="fi-heart"></i> Like
+  <% end %>
+<% end %>

@@ -1,4 +1,13 @@
-<%= form_for(@post) do |f| %>
-  <%= f.text_area :content, placeholder: "What's on your mind?" %>
-  <%= f.submit "Post" %>
-<% end %>
+<div class="callout small" id="post-form">
+  <div class="small-1 columns" %>
+    <%= gravatar_for(current_user, options = { size: 50 })%>
+  </div>
+  <div class="small-9 columns">
+    <%= form_for(@post) do |f| %>
+    <%= f.text_area :content, placeholder: "What's on your mind?", class: "wide" %>
+  </div>
+  <div class="small-2 columns">
+    <%= f.submit "Post", class: "button radius wide", id: "post-button" %>
+  <% end %>
+  </div>
+</div>

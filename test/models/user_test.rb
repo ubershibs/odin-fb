@@ -46,4 +46,7 @@ class UserTest < ActiveSupport::TestCase
     @user.name = "a" * 51
     assert_not @user.valid?
   end
+
 end
+
+

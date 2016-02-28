@@ -5,7 +5,11 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
 * Create the rails app with a postgresql database from the get-go (first time)
 * Sign-in with Devise
 * Set up Foundation for styling/layout - like it so far.
+* Set up Post and Comment models, controllers and views
+* Set up Guard and Minitest-Reporters gems to facilitate testing
 * Add tests to User model / expand model to include user info (non-auth related)
+* Add tests to Post model
+* Add integration tests for signed out users and users registrations
 
 ### To do
 * Use Omniauth to allow users to isng in with their real FB account
@@ -18,7 +22,6 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
   * Users can request friendship with other users
   * Users must approve friend requests
   * Friend requests show up in the notification section of nav bar
-* Users can create posts
   * Users can like other users' posts
   * Users can comment on other users' posts
   * Posts always display content, author, likes, comments
@@ -36,3 +39,5 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
     * Not having a pending friend request
 * Deploy to Heroku
 * Test that user is logged in and can see all pages after signup
+* Add user profile type info to User
+* Add 

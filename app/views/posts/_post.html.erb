@@ -1,14 +1,12 @@
-  <article>
-    <h4><%= post.user.name %></h4>
-    <p><%= distance_of_time_in_words_to_now(post.created_at) %></p>
+<% @posts.each do |post| %> 
+  <article class="callout small">
+    <div class="post-header clearfix">
+      <%= link_to gravatar_for(post.user, options = { size: 40 }), user_path(post.user), class: "float-left" %>
+      <p><strong><%= link_to post.user.name, user_path(post.user) %></strong><br><%= distance_of_time_in_words_to_now(post.created_at) %> ago</p>
+    </div>
     <p><%= post.content %></p>
+    <hr>
 
-    <section class="comments">
-      <h5>Comments</h4>
-      <% if post.comments.any? %>  
-        <%= render post.comments.order(created_at: :asc) %>
-      <% end %>
-      <%= render template: "comments/new", locals: {post: post} %>
-
-    </section>
+  
   </article>
+<% end %>

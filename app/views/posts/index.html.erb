@@ -1,8 +1,12 @@
-<% if current_user.name %>
-  <h2>Hello, <%= current_user.name %>!</h2>
-<% else %>
-  <h2>Hello!</h2>
-<% end %>
+<div class="row">
+  <div class="small-12 columns">
+  <% if current_user.name %>
+    <h2>Hello, <%= current_user.name %>!</h2>
+  <% else %>
+    <h2>Hello!</h2>
+  <% end %>
+  </div>
+</div>
 
 <%= render 'post_form' %>
 

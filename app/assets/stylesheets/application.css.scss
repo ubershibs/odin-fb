@@ -1,0 +1,30 @@
+@import "foundation_and_overrides";
+
+/* Add imports of custom sass/scss files here */
+@import 'foundation-icons';
+
+.wide {
+  width: 100%;
+}
+
+#post-form {
+  height: 70px;
+}
+
+#post-button {
+  height: 50px;
+}
+
+.post-header .gravatar {
+  padding-right: 20px;
+}
+
+.fi-heart {
+  font-size: 20px;
+  .liked {
+    color: #E33100;
+  }
+  .not-liked {
+    color: black;
+  }
+}

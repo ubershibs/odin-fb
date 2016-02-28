@@ -1,9 +1,9 @@
 luke:
   name: "Luke"
-  email: "default@example.com"
+  email: "luke@walker.com"
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 
 michael:
   name: "Michael"
-  email: "default1@example.com"
+  email: "michael@talon.com"
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
