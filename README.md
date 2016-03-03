@@ -10,6 +10,11 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
 * Add tests to User model / expand model to include user info (non-auth related)
 * Add tests to Post model
 * Add integration tests for signed out users and users registrations
+* Set up friending with Amistad gem. 
+* Add Friendships controller.
+* Add users#index page listing all users and their friendship status with current_user.
+* Add All Friends page with conditional "Pending invitations"
+* Limit newsfeed on posts#index to friends and self.
 
 ### To do
 * Use Omniauth to allow users to isng in with their real FB account
@@ -32,12 +37,6 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
   * Profile info
   * Photo
   * Posts
-* Users Index
-  * All users
-  * Buttons for sending friend requests to anyone:
-    * Not already a friend
-    * Not having a pending friend request
 * Deploy to Heroku
 * Test that user is logged in and can see all pages after signup
-* Add user profile type info to User
-* Add 
+* Add user profile type info to Users

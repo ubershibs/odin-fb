@@ -1,12 +1,12 @@
 
 User.create!(name: "Luke Walker",
-             email: "2@lukewalker.org",
+             email: "lukewalker@lukewalker.org",
              password:              "foobar12",
              password_confirmation: "foobar12")
 
 99.times do |n|
   name = Faker::Name.name
-  email = "luke-#{n+1}@lukewalkers.org"
+  email = "luke-#{n+1}.lukewalker.org"
   password = "foobar12"
   
   User.create!(name: name,
@@ -16,14 +16,10 @@ User.create!(name: "Luke Walker",
 end
 
 users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.posts.create(content: content) }
-end
-
-posts = Post.order(:created_at).take(10)
-50.times do |n|
-  comment = Faker::Lorem.sentence(2)
-  post.each { |post| post.comments.create(user_id: n, content: comment) }
-  n += 1
+10.times do
+  users[0].posts.create(content: Faker::Hipster.paragraphs(1))
+  users[1].posts.create(content: Faker::Hipster.paragraphs(1))
+  users[2].posts.create(content: Faker::Hipster.paragraphs(1))
+  users[3].posts.create(content: Faker::Hipster.paragraphs(1))
+  users[4].posts.create(content: Faker::Hipster.paragraphs(1))
 end

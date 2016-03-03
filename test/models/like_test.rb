@@ -23,5 +23,5 @@ class LikeTest < ActiveSupport::TestCase
   test "likeable_id should be present" do
     @like.likeable_id = nil
     assert_not @like.valid?
-    endw
+  end
 end

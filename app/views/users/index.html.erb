@@ -1,5 +1,28 @@
 <h1>All users</h1>
 
-<ul>
-  <%= render @users %>
-</ul>
+<%= will_paginate @users, renderer: FoundationPagination::Rails %>
+
+<div class="row small-up-1 medium-up-2 large-up-4" id="user-grid">
+<% for user in @users %>
+  <div class="column user-block">
+    <h5><%= link_to user.name, user_path(user) %></h5>
+    <%= link_to gravatar_for(user, options = { size: 120 }), user_path(user) %>
+
+    <!-- relationshhip --> 
+    <% if current_user == user %>
+      <p>Your profile</p>
+    <% elsif current_user.friend_with? user %>
+      <p>Already friends</p>
+    <% elsif current_user.invited? user %>
+      <p>Pending request...</p>
+    <% elsif user.invited? current_user %>
+      <p><%= link_to '<i class="fi-check"></i> Confirm friend'.html_safe, friend_path(user), method: :put %></p>
+    <% else %>
+      <p><%= link_to('<i class="fi-torsos"></i> Add Friend'.html_safe,  friends_path(user_id: user), method: :post) %></p>
+    <% end %>
+  </div>
+
+<% end %>
+</div>
+
+<%= will_paginate @users, renderer: FoundationPagination::Rails %>

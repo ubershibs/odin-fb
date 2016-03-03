@@ -8,8 +8,32 @@
   </div>
 </div>
 
-<%= render 'post_form' %>
-
+<div class="callout small" id="post-form">
+  <div class="small-1 columns" %>
+    <%= gravatar_for(current_user, options = { size: 50 })%>
+  </div>
+  <div class="small-9 columns">
+    <%= form_for(@post) do |f| %>
+    <%= f.text_area :content, placeholder: "What's on your mind?", class: "wide" %>
+  </div>
+  <div class="small-2 columns">
+    <%= f.submit "Post", class: "button radius wide", id: "post-button" %>
+  <% end %>
+  </div>
+</div>
 <h2>Recent Posts</h2>
- 
-<%= render @posts %>
+
+<%= will_paginate @posts, renderer: FoundationPagination::Rails %>
+
+<% for post in current_user.feed %> 
+  <article class="callout small">
+    <div class="post-header clearfix">
+      <%= link_to gravatar_for(post.user, options = { size: 40 }), user_path(post.user), class: "float-left" %>
+      <p><strong><%= link_to post.user.name, user_path(post.user) %></strong><br><%= distance_of_time_in_words_to_now(post.created_at) %> ago</p>
+    </div>
+    <p><%= post.content %></p>
+    <hr>  
+  </article>
+<% end %>
+
+<%= will_paginate @posts, renderer: FoundationPagination::Rails %>

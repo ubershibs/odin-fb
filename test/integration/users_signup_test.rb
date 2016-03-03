@@ -23,5 +23,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                    password: "foo123456",
                                    password_confirmation: "foo123456" }
     end
+    assert current_user == user
   end
 end

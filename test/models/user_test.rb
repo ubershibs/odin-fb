@@ -33,6 +33,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "password should be at least 8 characters" do
+    @user.password = "pass123"
+    assert_not @user.valid?
+  end
+
   test "name should be present or nil" do
     @user.name = "Luke Walker"
     assert @user.valid?

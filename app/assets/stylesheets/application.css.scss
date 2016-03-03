@@ -28,3 +28,29 @@
     color: black;
   }
 }
+
+/* User grid on users index */
+#user-grid {
+  text-align: center;
+}
+
+.user-block {
+  margin: auto;
+
+  p {
+    margin-top: 10px;
+  }
+
+  .button {
+    margin-top: 10px;
+    width: 120px;
+  }
+
+  h5 {
+    margin-top: 10px;
+  }
+}
+
+
+
+

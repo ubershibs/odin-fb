@@ -1,1 +1,17 @@
-<li><%= user.name %></li>
+<div class="column user-grid">
+  <%= link_to gravatar_for(user, options = { size: 120 }), user_path(user) %> 
+    <%= link_to user.name, user_path(user) %><br>
+    <!-- relationshhip --> 
+    <% if current_user.friend_with?(user) %>
+      <p><i class="fi-torsos"></i> Friend</p>
+    <% elsif current_user.invited?(user) %>
+      <p>Pending request...</p>
+    <% elsif user.invited?(current_user) %>
+      <%= link_to('<i class="fi-check"></i> Accept'.html_safe, friend_path(user), method: :put, class: 'success button') %>
+      <%= link_to('<i class="fi-x"></i> Accept'.html_safe, friend_path(user), method: :delete, class: 'alert button') %>
+    <% elsif current_user == user %>
+      <p>Your profile</p>
+    <% else %>
+      <%= link_to('<i class="fi-torsos"></i> Add Friend'.html_safe, friends_path(user_id: user.id), method: :post, class: "button") %>
+    <% end %>
+</div>
