@@ -10,7 +10,9 @@
     <% if current_user.likes?(post) %>
     <p><i class="fi-heart liked"></i> Liked by <%= post.likes.count %> users: 
       <% post.likers.each_with_index do |liker, i| %>
-        <% if i+1 == post.likers.length %>
+        <% if post.likers.length == 1 %>
+          <%= link_to liker.name, user_path(liker) %>
+        <% elsif i+1 == post.likers.length %>
           and <%= link_to liker.name, user_path(liker) %>
         <% else %>
           <%= link_to liker.name, user_path(liker) %>, 
