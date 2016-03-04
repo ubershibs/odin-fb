@@ -12,7 +12,7 @@
 }
 
 #post-form {
-  height: 70px;
+  height: 80px;
 }
 
 #post-button {
@@ -23,21 +23,26 @@
   padding-right: 20px;
 }
 
-.comment-form {
+.comment-form, .post-form {
   width: 100%;
   padding: 0 0 0 0;
   margin-bottom: 0;
 
-  td {
+  td, tr, tbody {
+    margin: 0 0 0 0; 
     padding: 0 0 0 0;
   }
 }
-.comment-field {
+.post-gravatar {
+  width: 60px;
+}
+
+.comment-field, .post-field {
   width: 100%;
 }
-.comment-text {
-  width: 95%;
-  margin-right: 20px;
+
+.comment-text, .post-text {
+  width: 98%;
 }
 
 

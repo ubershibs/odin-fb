@@ -1,10 +1,14 @@
 <div class="callout small" id="post-form">
-  <div class="small-8 medium-10 large-10 columns">
-    <%= form_for(@post) do |f| %>
-    <%= f.text_area :content, placeholder: "What's on your mind, #{current_user.name} ?", class: "wide" %>
-  </div>
-  <div class="small-4 columns">
-    <%= f.submit "Post", class: "button radius wide", id: "post-button" %>
+  <table class="post-form">
+    <tr>
+      <td class="post-field">
+        <%= form_for(@post) do |f| %>
+        <%= f.text_area :content, placeholder: "What's on your mind, #{current_user.name} ?", class: "post-text" %>
+      </td>
+      <td>
+        <%= f.submit "Post", class: "button radius wide", id: "post-button" %>
+      </td>
+    </tr>
   <% end %>
-  </div>
+  </table>
 </div>
