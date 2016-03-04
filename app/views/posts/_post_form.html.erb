@@ -1,9 +1,9 @@
 <div class="callout small" id="post-form">
-  <div class="small-10 columns">
+  <div class="small-8 medium-10 large-10 columns">
     <%= form_for(@post) do |f| %>
     <%= f.text_area :content, placeholder: "What's on your mind, #{current_user.name} ?", class: "wide" %>
   </div>
-  <div class="small-2 columns">
+  <div class="small-4 columns">
     <%= f.submit "Post", class: "button radius wide", id: "post-button" %>
   <% end %>
   </div>

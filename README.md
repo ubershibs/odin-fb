@@ -16,6 +16,8 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
 * Add users#index page listing all users and their friendship status with current_user.
 * Add All Friends page with conditional "Pending invitations"
 * Limit newsfeed on posts#index to friends and self.
+* Users can comment on and like own and friends' posts anywhere posts appear.
+* Users can always see the number of comments and likes on a post.
 
 ### To do
 * Use Omniauth to allow users to sign in with their real FB account
@@ -25,9 +27,6 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
   * Has notification section
 * Friend Requests
   * Friend requests show up in the notification section of nav bar
-  * Users can like other users' posts
-  * Users can comment on other users' posts
-  * Posts always display content, author, likes, comments
 * Profile (User show)
   * Use gravatar to start
   * Profile info

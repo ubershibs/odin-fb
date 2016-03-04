@@ -28,8 +28,8 @@
         <% flash.each do |message_type, message| %>
           <div class="<%= message_type %> callout"><%= message %></div>
         <% end %>
-        <%= yield %>
       </div>
+        <%= yield %>
     </div>
 
     <%= debug(params) if Rails.env.development? %>

@@ -3,6 +3,10 @@
 /* Add imports of custom sass/scss files here */
 @import 'foundation-icons';
 
+.row {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .wide {
   width: 100%;
 }
@@ -19,11 +23,24 @@
   padding-right: 20px;
 }
 
-.comment-field {
-  position: absolute;
-  left: 10px;
-  width: 80%;
+.comment-form {
+  width: 100%;
+  padding: 0 0 0 0;
+  margin-bottom: 0;
+
+  td {
+    padding: 0 0 0 0;
+  }
 }
+.comment-field {
+  width: 100%;
+}
+.comment-text {
+  width: 95%;
+  margin-right: 20px;
+}
+
+
 .fi-heart {
   font-size: 20px;
  } 
