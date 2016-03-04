@@ -10,6 +10,10 @@
 
     <p>From: <%= @user.from %></p>
     <p>Gender: <%= @user.gender %></p>
+    <br>
+    <h4>Likes</h4>
+    <p>Likes <%= @user.liked_posts.count %> posts</p>
+    <p>Likes <%= @user.liked_comments.count %> comments</p>
 
     <% if current_user == @user %>
       <%= link_to "Update my info", edit_user_path(@user) %>
