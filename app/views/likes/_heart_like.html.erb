@@ -1,0 +1,15 @@
+<% if current_user.likes?(likeable) %>
+  <%= link_to(current_user.likes.find_by(likeable_id: likeable.id), method: :delete, class: "liked") do %>
+    <i class="fi-heart"></i> (Liked by <%=  likeable.likes.count %> users: <% likeable.likers.each_with_index do |liker, i| %>
+        <% if i+1 == post.likers.length %>
+          and <%= link_to liker.name, user_path(liker) %>
+        <% else %>
+          <%= link_to liker.name, user_path(liker) %>, 
+        <% end %>
+      <% end %>)
+  <% end %>
+<% else %>
+  <%= link_to post_comment_likes_path(post, comment_id: likeable.id), method: :post do %>
+    <i class="fi-heart"></i> (<%=  likeable.likes.count %>)
+  <% end %>
+<% end %>

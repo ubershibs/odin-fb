@@ -1,0 +1,9 @@
+<% if current_user.likes?(likeable) %>
+  <%= button_to(current_user.likes.find_by(likeable_id: likeable.id), method: :delete, class: "alert hollow button float-right", id: "like-#{likeable.id}") do %>
+    <i class="fi-heart"></i> Liked this (<%=  likeable.likes.count %>)
+  <% end %>
+<% else %>
+  <%= button_to polymorphic_path([likeable, Like], method: :post), class: "secondary hollow button float-right", id: "like-#{likeable.id}" do %>
+    <i class="fi-heart"></i> Like (<%=  likeable.likes.count %>)
+  <% end %>
+<% end %>

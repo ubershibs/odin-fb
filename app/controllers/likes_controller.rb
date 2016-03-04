@@ -1,21 +1,21 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
+  # Like a model
   def create
-    @like = @likeable.likes.new(like_params)
-    @like.user = current_user
+    @user = current_user
+    @like = @user.likes.build(likeable: @likeable)
     @like.save
-    flash[:success] = "Like successful!"
-    redirect_to @likeable
+    redirect_to :back
   end
 
+  # Dislike a model
   def destroy
+    @user = current_user
+    @like = @user.likes.find(params[:id])
+    @like.destroy
+    redirect_to :back
   end
 
-  private
-
-    def like_params
-      params.require(:like).permit(:user_id, :likeable_id, :likeable_type)
-    end
-
+ 
 end

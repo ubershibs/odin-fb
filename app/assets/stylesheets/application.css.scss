@@ -26,13 +26,13 @@
 }
 .fi-heart {
   font-size: 20px;
+ } 
   .liked {
-    color: #E33100;
+    color: red;
   }
   .not-liked {
     color: black;
   }
-}
 
 /* User grid on users index */
 #user-grid {

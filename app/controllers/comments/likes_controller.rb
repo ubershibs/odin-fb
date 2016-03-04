@@ -1,9 +1,13 @@
 class Comments::LikesController < LikesController
-  before_action :set_likeable
+ before_filter :set_likeable
+ 
+
 
   private
-
     def set_likeable
-      @likeable = Comment.find(params[:comment_id])
+      array = request.path.split("/")
+      resource, id = array[3], array[4]
+      @likeable = resource.singularize.classify.constantize.find(id)
     end
+
 end

@@ -5,19 +5,18 @@ Rails.application.routes.draw do
 
   resources :posts do 
 
-    resources :likes, module: :posts
+    resources :likes, module: "posts", only: [:create, :destroy]
 
     resources :comments do 
 
-      resources :likes, module: :comments
+      resources :likes, module: "comments", only: [:create, :destroy]
 
     end
-
   end
-
   resources :users, only: [:index, :show, :edit, :update]
   resources :friends, :controller => 'friendships', :except => [:show, :edit] do
     get "requests", :on => :collection
     get "invites", :on => :collection
   end
+  resources :likes, only: [:destroy]
 end

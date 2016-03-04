@@ -1,9 +1,12 @@
 class Posts::LikesController < LikesController
-  before_action :set_likeable
+ before_filter :find_likeable
+ 
+
 
   private
-
-    def set_likeable
-      @likeable = Post.find(params[:post_id])
+    def find_likeable  
+      resource, id = request.path.split("/")[1,2]
+      @likeable = resource.singularize.classify.constantize.find(id)
     end
+
 end
