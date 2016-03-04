@@ -19,8 +19,8 @@ gem 'amistad'
 gem 'figaro'
 gem 'foundation-icons-sass-rails'
 gem 'faker'
-gem 'modernizr-rails'
 gem 'will_paginate-foundation'
+gem 'newrelic_rpm'
 
 group :doc do 
 gem 'sdoc',           '~> 0.4.0'
