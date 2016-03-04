@@ -4,15 +4,22 @@ class PostsController < ApplicationController
   def index
     @user = current_user
     @post = Post.new
-    @posts = Post.paginate(:page => params[:page], :per_page => 20).order('created_at DESC')
+    @posts = @user.feed.paginate(:page => params[:page], :per_page => 20)
   end
 
   def create
-    content = params[:post][:content]
-    @post = current_user.posts.build(content: content)
-    @post.save
-    flash[:success] = "Posted!"
-    redirect_to :back
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:success] = "Posted!"
+      redirect_to :back
+    else
+      flash.now[:alert] = "Failed to post."
+      render :back
+    end
   end
 
+  private
+    def post_params
+      params.require(:post).permit(:content)
+    end
 end

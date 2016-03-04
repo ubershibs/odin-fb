@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  
-  test "logged out visito ris redirected" do
+
+  def setup
+    @user = users(:luke)
+  end
+
+  test "logged out visitor is redirected" do
     get root_path
     assert_redirected_to new_user_session_path
   end
@@ -23,6 +27,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                    password: "foo123456",
                                    password_confirmation: "foo123456" }
     end
-    assert current_user == user
+    assert_template "notice_mailer/welcome"
+    user = assigns(:user)
+    assert_redirected_to edit_user_path(user)
+    patch user_path(user), user: {name: "Test User",
+                                 from: "Toronto",
+                                  gender: "M"}
+    assert_redirected_to user_path(user)
   end
 end

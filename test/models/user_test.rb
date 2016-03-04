@@ -5,12 +5,17 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "the man", email: "the_man@the_man.com", password: "foobar123",
                      password_confirmation: "foobar123")
+    @fixture = users(:luke)
   end
 
   test "should be valid" do
     assert @user.valid?
   end
 
+  test "fixture should be valid" do
+    assert @fixture.valid?
+  end
+  
   test "email should be present" do 
     @user.email = "          "
     assert_not @user.valid?

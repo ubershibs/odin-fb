@@ -34,8 +34,10 @@ group :development do
   gem 'web-console',   '~> 2.0'
   gem 'spring'
   gem 'guard'
+  gem 'minitest-rails'
   gem 'minitest-reporters' 
   gem 'guard-minitest'
+  gem 'letter_opener'
 end
 
 group :test do

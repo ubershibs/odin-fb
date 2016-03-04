@@ -1,0 +1,12 @@
+<h1>Update Info</h1>
+Update the information that appears on your profile.
+
+<%= form_for @user, url: {action: 'update'}, html: { method: "patch" } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :from %>
+  <%= f.text_field :from %>
+  <%= f.label :gender %>
+  <%= f.text_field :gender %>
+  <%= f.submit "Update Info", class: "expanded button" %>
+<% end %> 

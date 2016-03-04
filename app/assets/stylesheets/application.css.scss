@@ -15,10 +15,15 @@
   height: 50px;
 }
 
-.post-header .gravatar {
+.post-header .gravatar, .comment .gravatar {
   padding-right: 20px;
 }
 
+.comment-field {
+  position: absolute;
+  left: 10px;
+  width: 80%;
+}
 .fi-heart {
   font-size: 20px;
   .liked {

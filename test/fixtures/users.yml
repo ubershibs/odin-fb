@@ -1,9 +1,9 @@
 luke:
-  name: "Luke"
   email: "luke@walker.com"
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'foobar12') %>
+  name: "Luke"
 
 michael:
-  name: "Michael"
   email: "michael@talon.com"
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'foobar12') %>
+  name: "Michael"

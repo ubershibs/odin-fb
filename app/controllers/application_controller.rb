@@ -4,4 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
+  def after_sign_in_path_for(resource)
+    if current_user.name.nil?
+      flash[:success] = "Why not take a moment to give us some more info about yourself? It will make it easier for your friends to find you."
+      edit_user_path(current_user)
+    else
+      root_url
+    end
+  end
 end
