@@ -19,4 +19,9 @@ Rails.application.routes.draw do
     get "invites", :on => :collection
   end
   resources :likes, only: [:destroy]
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 end

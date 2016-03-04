@@ -238,7 +238,7 @@ DEPENDENCIES
   foundation-rails
   guard
   guard-minitest
-  jbuilder (~> 2.0)
+  jbuilder (~> 2.4, >= 2.4.1)
   jquery-rails
   letter_opener
   minitest-rails

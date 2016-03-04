@@ -3,6 +3,17 @@
 /* Add imports of custom sass/scss files here */
 @import 'foundation-icons';
 
+.menu-wide {
+  width: 400px;
+  li {
+    padding: 10px 20px 10px 20px;
+  }
+}
+.fi-flag {
+  color: white;
+  font-size: 25px;
+}
+
 .row {
   margin-left: 10px;
   margin-right: 10px;

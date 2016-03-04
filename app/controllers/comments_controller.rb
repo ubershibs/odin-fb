@@ -10,12 +10,18 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "Comment posted!"
+      # Create notifications
+      (@post.commenters + [@post.likers] + [@post.user]).uniq - [current_user].each do |commenter|
+        Notification.create(recipient: commenter, actor: current_user, action: "commented on", notifiable: @comment)
+      end
       redirect_to :back
     else
       flash.now[:danger] = "Error posting comment."
       render :back
     end
   end
+
+
 
   private
 

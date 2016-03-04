@@ -20,6 +20,14 @@
           <li><%= link_to "All users", users_path %></li>
           <li><%= link_to "Friends", friends_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><ul class="dropdown menu" data-dropdown-menu data-disable-hover="true" data-click-open="true">
+            <li data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
+              <a href="#" data-behavior="notifications-link"><i class="fi-flag"></i><span class="badge" data-behavior="unread-count"></span></a>
+              <ul class="menu menu-wide">
+                <span data-behavior="notification-items"></span>
+               </ul>
+            </li>
+          </ul></li>
         <% end %>
       </ul>
     </nav>
