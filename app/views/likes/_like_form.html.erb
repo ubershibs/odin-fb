@@ -1,9 +1,0 @@
-<% if current_user.likes?(@likeable) %>
-  <%= link_to(post_like(@likeable), method: :delete) do %>
-    <i class="fi-heart liked"></i> Liked
-  <% end %>
-<% else %>
-  <%= link_to(new_post_like_path(post_id: @likeable.id), method: :post) do %>
-    <i class="fi-heart not-liked"></i> Like?
-  <% end %>
-<% end %>

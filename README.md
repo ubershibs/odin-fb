@@ -23,17 +23,6 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
 
 ### To do
 * Use Omniauth to allow users to sign in with their real FB account
-* Welcome mailer
-  * Sendgrid in prod
-* Navbar
-  * Has notification section
-* Friend Requests
-  * Friend requests show up in the notification section of nav bar
 * Profile (User show)
   * Use gravatar to start
-  * Profile info
   * Photo
-  * Posts
-* Deploy to Heroku
-* Test that user is logged in and can see all pages after signup
-* Add user profile type info to Users

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, allow_nil: true, allow_blank: false,
             length: { maximum: 50 }
-            
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes
@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   has_many :liked_comments, through: :likes, source: :likeable, source_type: "Comment"
   has_many :notifications, foreign_key: :recipient_id
   after_create :welcome
+
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def welcome
     welcome_email
@@ -25,7 +28,6 @@ class User < ActiveRecord::Base
     self.friends.each { |f| friend_ids << f.id }
     Post.where("user_id IN (?) or user_id = ?", friend_ids, id).order("created_at DESC")
   end
-
 
   def likes?(likeable)
     if likeable.class == Post

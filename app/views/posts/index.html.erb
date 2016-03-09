@@ -11,7 +11,15 @@
 <%= render partial: "posts/post_form" %>
 
 <h2>Recent Posts</h2>
+<% if !@posts.any? %>
+<p>There are no recent posts to display.</p>
 
+<p>To see posts in this space:</p>
+<ul>
+  <li>Add some posts of your own. Your own posts will appear in this space immmediately.</li>
+  <li>Visit the All Users page and add some friends. Their posts will appear here once they accept your friendship request.</li>
+</ul>
+<% end %>
 <%= will_paginate @posts, renderer: FoundationPagination::Rails %>
 
 <%= render @posts %>

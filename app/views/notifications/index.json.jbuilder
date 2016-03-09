@@ -13,7 +13,7 @@ json.array! @notifications do |notification|
       end
       json.url post_path(notification.notifiable.likeable)
     end
-  elsif notification.notifiable == @comment
+  elsif notification.action = "commented on"
     json.notifiable do
       json.type "a post by #{notification.notifiable.post.user.name}"
     end

@@ -14,16 +14,16 @@ class PostsController < ApplicationController
       redirect_to :back
     else
       flash.now[:alert] = "Failed to post."
-      render :back
+      render partial: "posts/post_form"
     end
   end
 
   def show
     @post = Post.find(params[:id])
   end
-  
+
   private
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:content, :photo)
     end
 end

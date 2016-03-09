@@ -3,6 +3,17 @@
 /* Add imports of custom sass/scss files here */
 @import 'foundation-icons';
 
+.notice {
+  @extend .success;
+}
+
+.white-background {
+  background-color: white;
+}
+
+nav {
+  margin-bottom: 10px;
+}
 .menu-wide {
   width: 400px;
   li {
@@ -26,12 +37,9 @@
   height: 80px;
 }
 
-#post-button {
+#post-button, #add-photo-button {
   height: 50px;
-}
-
-.post-header .gravatar, .comment .gravatar {
-  padding-right: 20px;
+  margin-right: 10px;
 }
 
 .comment-form, .post-form {
@@ -40,12 +48,24 @@
   margin-bottom: 0;
 
   td, tr, tbody {
-    margin: 0 0 0 0; 
+    margin: 0 0 0 0;
     padding: 0 0 0 0;
   }
 }
-.post-gravatar {
-  width: 60px;
+
+.post-header .gravatar, .comment .gravatar {
+  padding-right: 20px;
+}
+
+.photo-container img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-photo {
+  max-width:100%;
+  max-height:100%;
 }
 
 .comment-field, .post-field {
@@ -56,10 +76,10 @@
   width: 98%;
 }
 
-
+/* Likes */
 .fi-heart {
   font-size: 20px;
- } 
+ }
   .liked {
     color: red;
   }
@@ -89,6 +109,15 @@
   }
 }
 
+/* profile page */
+.profie_header {
+  position: relative;
+}
+
+.username {
+  position: absolute;
+  top: 200px;
+}
 
 
 

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, path: '/users'  
+  devise_for :users, path: '/users'
 
   root to: "posts#index"
 
-  resources :posts do 
-
+  resources :posts do
     resources :likes, module: "posts", only: [:create, :destroy]
 
-    resources :comments do 
+    resources :comments do
 
       resources :likes, module: "comments", only: [:create, :destroy]
 

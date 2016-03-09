@@ -1,6 +1,0 @@
-<%= form_for(object.likes.find_by(user_id: object.id), html: { method: :delete }) do |f| %>
-  <%= f.submit :class => "button" do %>
-
-    <i class="fi-heart liked"></i> Liked!
-
-  <% end %>

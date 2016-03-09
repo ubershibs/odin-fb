@@ -6,16 +6,19 @@
       <%= distance_of_time_in_words_to_now(post.created_at) %> ago</p>
   </div>
   <p><%= post.content %></p>
-  <hr>  
+  <div class="photo-container">
+    <%= image_tag post.photo.url, class: "post-photo" %>
+  </div>
+  <hr>
     <% if current_user.likes?(post) %>
-    <p><i class="fi-heart liked"></i> Liked by <%= post.likes.count %> users: 
+    <p><i class="fi-heart liked"></i> Liked by <%= post.likes.count %> users:
       <% post.likers.each_with_index do |liker, i| %>
         <% if post.likers.length == 1 %>
           <%= link_to liker.name, user_path(liker) %>
         <% elsif i+1 == post.likers.length %>
           and <%= link_to liker.name, user_path(liker) %>
         <% else %>
-          <%= link_to liker.name, user_path(liker) %>, 
+          <%= link_to liker.name, user_path(liker) %>,
         <% end %>
       <% end %>
     <% end %>
@@ -25,7 +28,7 @@
       <% for comment in post.comments %>
         <div class="comment clearfix">
           <%= link_to gravatar_for(comment.user, options = { size: 30 }), user_path(comment.user), class: "float-left" %>
-          <p><strong><% if current_user == comment.user %><%= link_to "You", user_path(comment.user) %><% else %><%= link_to comment.user.name, user_path(comment.user) %><% end %></strong> said: <%= comment.content %> (<%= distance_of_time_in_words_to_now(comment.created_at) %></em> ago) 
+          <p><strong><% if current_user == comment.user %><%= link_to "You", user_path(comment.user) %><% else %><%= link_to comment.user.name, user_path(comment.user) %><% end %></strong> said: <%= comment.content %> (<%= distance_of_time_in_words_to_now(comment.created_at) %></em> ago)
           <%= render partial: "likes/heart_like", locals: { post: post, likeable: comment}%></p>
         </div>
       <% end %>
@@ -36,7 +39,7 @@
       <tr>
         <td class="comment-field">
       <%= form_for(post.comments.build, url: post_comments_path(post.id), method: "post") do |f| %>
-        <%= hidden_field_tag :post_id, post.id %> 
+        <%= hidden_field_tag :post_id, post.id %>
       <%= f.text_area :content, placeholder: "Have a comment?", class: "comment-text" %></td>
         <td><%= f.submit "Comment", class: "button" %></td>
       </tr>
