@@ -13,8 +13,8 @@ class PostsController < ApplicationController
       flash[:success] = "Posted!"
       redirect_to :back
     else
-      flash.now[:alert] = "Failed to post."
-      render partial: "posts/post_form"
+      flash[:alert] = "Your post could not be published."
+      redirect_to :index
     end
   end
 

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :liked_posts, through: :likes, source: :likeable, source_type: "Post"
   has_many :liked_comments, through: :likes, source: :likeable, source_type: "Comment"
   has_many :notifications, foreign_key: :recipient_id
+  has_many :notifications, as: :notifiable
+  has_many :photos, through: :posts
   after_create :welcome
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

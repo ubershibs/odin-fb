@@ -3,6 +3,17 @@
 /* Add imports of custom sass/scss files here */
 @import 'foundation-icons';
 
+.top-bar {
+  a {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+  }
+  .badge {
+    font-size: 1rem;
+  }
+}
+
 .notice {
   @extend .success;
 }
@@ -117,6 +128,7 @@ nav {
 .username {
   position: absolute;
   top: 200px;
+  left: 310px;
 }
 
 

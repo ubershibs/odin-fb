@@ -29,10 +29,11 @@ class Notifications
 
   handleSuccess: (data) =>
     items = $.map data, (notification) ->
-      "<li><a href='#{notification.url}'>#{notification.actor} #{notification.action} #{notification.notifiable.type}</a></li>"
+      "<li><a href='#{notification.url}'>#{notification.actor} #{notification.action}</a></li>"
 
     $("[data-behavior='unread-count']").text(items.length)
-    $("[data-behavior='notification-items']").html(items).on "click", @handleClick
+    $("[data-behavior='notification-items']").html(items).on "click",
+       @handleClick
 
 jQuery ->
   new Notifications

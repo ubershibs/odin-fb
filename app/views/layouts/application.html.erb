@@ -5,53 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Odin-Facebook" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <%= render "layouts/nav" %>
 
-    <nav class="title-bar">
-      <ul class="menu">
-         <li><%= link_to "OdinFB", root_url %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "All users", users_path %></li>
-          <li><%= link_to "Friends", friends_path %></li>
-          <li><%= link_to "Log out"|i|\\\\\\\\\\\\\\0-\\\\\\0333fcoaererefx destroy_user_session_path, method: :delete %
-
-              <a href="#" data-behavior="notifications-link"><i class="fi-flag"></i><span class="badge" data-behavior="unread-count"></span></a>
-              <ul class="menu menu-wide">
-                <span data-behavior="notification-items"></span>
-               </ul>
-            </li>
-          </ul></li>
-
-data-behavior="notifications-link"><i class="fi-flag"></i><span class="badge" data-behavior="unread-count"></span></a>
-              <ul class="menu menu-wide">
-                <span data-behavior="notification-items"></span>
-               </ul>
-
-
-          <button class="button" type="button" data-toggle="notifications-dropdown" data-behavior="notifications-link"><i class="fi flag"></i><span class="basdge" anti-behavior"></button>
-          <div class="dropdown-pane" id="notifications-dropdown" data-dropdown data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
-
-
-          </div>
-
-        <% end %>
-      </div>
-    </nav>
-    <div class="row">
-      <div class="small-10 small-offset-1">
-        <% flash.each do |message_type, message| %>
-          <div class="<%= message_type %> callout"><%= message %></div>
-        <% end %>
-      </div>
-        <%= yield %>
+  <div class="row">
+    <div class="small-10 small-offset-1">
+      <% flash.each do |message_type, message| %>
+        <div class="<%= message_type %> callout"><%= message %></div>
+      <% end %>
     </div>
-
+    <%= yield %>
+  </div>
+  <div class="callout small">
     <%= debug(params) if Rails.env.development? %>
+  </div>
+
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
