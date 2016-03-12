@@ -7,9 +7,11 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
 * Set up Foundation for styling/layout - like it so far.
 * Set up a welcome mailer for new users, using Sendgrid.
 * Set up Post and Comment models, controllers and views.
+  * Add photos to the post model. Used an optional photo on a regular post via paperclip, rather than mulitple post types with polymorphic associations per the instructions. I did, however, use polymorphic associations for my Like and Notification modules.
 * Set up Guard and Minitest-Reporters gems to facilitate testing.
 * Add tests to User, Post, Comment, and Like models, as well as limited integration and controller tests.
 * Extend User model to include profile info (name, town, gender)
+* Add user photos using paperclip gem as well as default gravatar
 * Add integration tests for signed out users and users registrations
 * Set up friending with Amistad gem / add friendship controller.
 * Add users#index page listing all users and their friendship status with current_user.
@@ -23,6 +25,3 @@ Building a Facebook clone as a final project in the Odin Project's Rails course.
 
 ### To do
 * Use Omniauth to allow users to sign in with their real FB account
-* Profile (User show)
-  * Use gravatar to start
-  * Photo

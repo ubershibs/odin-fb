@@ -1,9 +1,13 @@
 <article class="callout small">
   <div class="post-header clearfix">
-    <%= link_to gravatar_for(post.user, options = { size: 40 }), user_path(post.user), class: "float-left" %>
-    <%= render partial: "likes/button_like", locals: {likeable: post} %>
-    <p><strong><% if current_user == post.user %><%= link_to "You", user_path(post.user) %><% else %><%= link_to post.user.name, user_path(post.user) %><% end %></strong> said:<br>
-      <%= distance_of_time_in_words_to_now(post.created_at) %> ago</p>
+    <% if @user.avatar_file_name.nil? %>
+      <%= link_to gravatar_for(post.user, options = { size: 40 }), user_path(post.user), class: "float-left" %>
+    <% else %>
+      <%= link_to( image_tag(post.user.avatar.url(:tiny)), user_path(post.user), class: "float-left gravatar") %>
+    <% end %>
+  <%= render partial: "likes/button_like", locals: {likeable: post} %>
+  <p><strong><% if current_user == post.user %><%= link_to "You", user_path(post.user) %><% else %><%= link_to post.user.name, user_path(post.user) %><% end %></strong> said:<br>
+    <%= distance_of_time_in_words_to_now(post.created_at) %> ago</p>
   </div>
   <% unless post.content.nil? %>
     <p><%= post.content %></p>

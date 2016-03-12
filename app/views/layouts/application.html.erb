@@ -13,17 +13,16 @@
   <body>
     <%= render "layouts/nav" %>
 
-  <div class="row">
-    <div class="small-10 small-offset-1">
-      <% flash.each do |message_type, message| %>
-        <div class="<%= message_type %> callout"><%= message %></div>
-      <% end %>
+    <div class="row">
+
+      <%= render "layouts/flash" %>
+
+      <%= yield %>
     </div>
-    <%= yield %>
-  </div>
-  <div class="callout small">
-    <%= debug(params) if Rails.env.development? %>
-  </div>
+
+    <div class="callout small">
+      <%= debug(params) if Rails.env.development? %>
+    </div>
 
     <script>
       $(document).foundation();

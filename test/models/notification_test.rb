@@ -8,4 +8,5 @@ class NotificationTest < ActiveSupport::TestCase
   def test_valid
     assert notification.valid?
   end
+
 end

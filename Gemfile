@@ -23,7 +23,7 @@ gem 'will_paginate-foundation'
 gem 'newrelic_rpm'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '>= 2.0.0'
-
+gem 'omniauth-facebook'
 
 group :doc do
 gem 'sdoc',           '~> 0.4.0'
@@ -46,7 +46,6 @@ group :development do
 end
 
 group :test do
-  gem 'rb-inotify', '~> 0.9.7'
 end
 
 group :production do

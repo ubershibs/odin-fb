@@ -1,0 +1,7 @@
+<div class="photo-container">
+  <% if @user.avatar_file_name.nil? %>
+    <%= gravatar_for @user, options = { size: 400 }%>
+  <% else %>
+    <%= image_tag @user.avatar.url %>
+  <% end %>
+</div>

@@ -1,0 +1,5 @@
+<div class="small-10 small-offset-1">
+  <% flash.each do |message_type, message| %>
+    <div class="<%= message_type %> callout"><%= message %></div>
+  <% end %>
+</div>

@@ -47,3 +47,7 @@ end
 class ActionController::TestCase
   include Devise::TestHelpers
 end
+
+class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+end
