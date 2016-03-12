@@ -22,7 +22,7 @@ gem 'faker'
 gem 'will_paginate-foundation'
 gem 'newrelic_rpm'
 gem "paperclip", "~> 4.3"
-gem 'aws-sdk', '>= 2.0.0'
+gem 'aws-sdk', '< 2.0'
 gem 'omniauth-facebook'
 
 group :doc do
