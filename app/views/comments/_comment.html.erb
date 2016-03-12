@@ -1,5 +1,5 @@
-  <article>
-    <h5><%= comment.user.name %> commented:</h5>
-    <p><%= distance_of_time_in_words_to_now(comment.created_at) %></p>
-    <p><%= comment.content %></p>
-  </article>
+ <div class="comment clearfix">
+    <%= link_to gravatar_for(comment.user, options = { size: 30 }), user_path(comment.user), class: "float-left" %>
+    <p><strong><% if current_user == comment.user %><%= link_to "You", user_path(comment.user) %><% else %><%= link_to comment.user.name, user_path(comment.user) %><% end %></strong> said: <%= comment.content %> (<%= distance_of_time_in_words_to_now(comment.created_at) %></em> ago)
+    <%= render partial: "likes/heart_like", locals: { post: post, likeable: comment} %></p>
+  </div>

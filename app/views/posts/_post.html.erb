@@ -1,10 +1,6 @@
 <article class="callout small">
   <div class="post-header clearfix">
-    <% if @user.avatar_file_name.nil? %>
-      <%= link_to gravatar_for(post.user, options = { size: 40 }), user_path(post.user), class: "float-left" %>
-    <% else %>
-      <%= link_to( image_tag(post.user.avatar.url(:tiny)), user_path(post.user), class: "float-left gravatar") %>
-    <% end %>
+  <%= render partial: "users/profile_photo_tiny", locals: {post: post} %>
   <%= render partial: "likes/button_like", locals: {likeable: post} %>
   <p><strong><% if current_user == post.user %><%= link_to "You", user_path(post.user) %><% else %><%= link_to post.user.name, user_path(post.user) %><% end %></strong> said:<br>
     <%= distance_of_time_in_words_to_now(post.created_at) %> ago</p>
@@ -18,41 +14,17 @@
     </div>
   <% end %>
   <hr>
-    <% if current_user.likes?(post) %>
-    <p><i class="fi-heart liked"></i> Liked by <%= post.likes.count %> users:
-      <% post.likers.each_with_index do |liker, i| %>
-        <% if post.likers.length == 1 %>
-          <%= link_to liker.name, user_path(liker) %>
-        <% elsif i+1 == post.likers.length %>
-          and <%= link_to liker.name, user_path(liker) %>
-        <% else %>
-          <%= link_to liker.name, user_path(liker) %>,
-        <% end %>
-      <% end %>
-    <% end %>
+  <%= render partial: "likes/post_likes", locals: {post: post} %>
   <section>
     <% if post.comments.any? %>
       <h5> <i class="fi-commments"></i> Comments (<%= post.comments.count %>)</h5>
       <% for comment in post.comments %>
-        <div class="comment clearfix">
-          <%= link_to gravatar_for(comment.user, options = { size: 30 }), user_path(comment.user), class: "float-left" %>
-          <p><strong><% if current_user == comment.user %><%= link_to "You", user_path(comment.user) %><% else %><%= link_to comment.user.name, user_path(comment.user) %><% end %></strong> said: <%= comment.content %> (<%= distance_of_time_in_words_to_now(comment.created_at) %></em> ago)
-          <%= render partial: "likes/heart_like", locals: { post: post, likeable: comment} %></p>
-        </div>
+       <%= render partial: "comments/comment", locals: {post: post, comment: comment} %>
       <% end %>
     <% end %>
   </section>
   <section>
-    <table class="comment-form">
-      <tr>
-        <td class="comment-field">
-      <%= form_for(post.comments.build, url: post_comments_path(post.id), method: "post") do |f| %>
-        <%= hidden_field_tag :post_id, post.id %>
-      <%= f.text_area :content, placeholder: "Have a comment?", class: "comment-text" %></td>
-        <td><%= f.submit "Comment", class: "button" %></td>
-      </tr>
-    </table>
-    <% end %>
+  <%= render partial: "comments/new", locals: {post: post} %>
   </section>
 </article>
 

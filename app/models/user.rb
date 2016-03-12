@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :photos, through: :posts
   after_create :welcome
 
-  has_attached_file :avatar, styles: { medium: "400x400>", thumb: "100x100>", tiny: "40x40>" },  :url  => "/assets/users/:id/:style/:basename.:extension",
+  has_attached_file :avatar, styles: { medium: "400x400>", thumb: "120x120>", tiny: "40x40>" },  :url  => "/assets/users/:id/:style/:basename.:extension",
       :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
  validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/gif', 'image/png']
